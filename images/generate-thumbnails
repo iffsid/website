@@ -1,0 +1,4 @@
+find . -name \*_thumb.jpeg -exec rm {} \;
+find . -name \*.jpeg -exec convert -resize 320x240 {} {}_thumb.jpeg \;
+find . -name \*.jpg -exec convert -resize 320x240 {} {}_thumb.jpeg \;
+find . -name \*.png -exec convert -resize 320x240 {} {}_thumb.jpeg \;

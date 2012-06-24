@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- Created by htmlize-1.39 in css mode. -->
+<html>
+  <head>
+    <title>variant-a-initial-rules.sc</title>
+    <style type="text/css">
+    <!--
+      body {
+        color: #f8f8f8;
+        background-color: #000000;
+      }
+      .ATTRLIST {
+        /* (:foreground "firebrick1") */
+        color: #ff3030;
+      }
+      .ATTRLIST-1 {
+        /* (:foreground "IndianRed1") */
+        color: #ff6a6a;
+      }
+      .ATTRLIST-2 {
+        /* (:foreground "IndianRed3") */
+        color: #cd5555;
+      }
+      .ATTRLIST-3 {
+        /* (:foreground "IndianRed4") */
+        color: #8b3a3a;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #f6b913;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #50eafb;
+      }
+      .paren {
+        /* paren-face */
+        color: #595959;
+      }
+
+      a {
+        color: inherit;
+        background-color: inherit;
+        font: inherit;
+        text-decoration: inherit;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    -->
+    </style>
+  </head>
+  <body>
+    <pre>
+<span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-initial-board</span><span class="paren">)</span> '<span class="paren">(</span>1 <span class="paren">((</span>1 1 1<span class="paren">)</span> <span class="paren">(</span>0 0 0<span class="paren">)</span> <span class="paren">(</span>-1 -1 -1<span class="paren">))))</span>
+
+<span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-board-move</span> board from-i from-j to-i to-j<span class="paren">)</span>
+ <span class="paren">(</span>list-2d-replace
+  <span class="paren">(</span>list-2d-replace board to-i to-j <span class="paren">(</span>list-2d-ref board from-i from-j<span class="paren">))</span>
+  from-i
+  from-j
+  0<span class="paren">))</span>
+
+<span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-moves</span> board<span class="paren">)</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-piece-at</span> i j board<span class="paren">)</span> <span class="paren">(</span>list-2d-ref board i j<span class="paren">))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-piece-at?</span> i j board<span class="paren">)</span> <span class="paren">(</span>not <span class="paren">(</span>zero? <span class="paren">(</span>list-2d-ref board i j<span class="paren">))))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-on-board?</span> i board<span class="paren">)</span> <span class="paren">(</span><span class="keyword">and</span> <span class="paren">(</span>&gt;= i 0<span class="paren">)</span> <span class="paren">(</span>&lt; i <span class="paren">(</span>length board<span class="paren">))))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-can-capture?</span> piece direction i j board<span class="paren">)</span>
+  <span class="paren">(</span><span class="keyword">and</span> <span class="paren">(</span>variant-a-on-board? <span class="paren">(</span>+ i piece<span class="paren">)</span> board<span class="paren">)</span>
+       <span class="paren">(</span>variant-a-on-board? <span class="paren">(</span>+ j direction<span class="paren">)</span> board<span class="paren">)</span>
+       <span class="paren">(</span>variant-a-piece-at? <span class="paren">(</span>+ i piece<span class="paren">)</span> <span class="paren">(</span>+ j direction<span class="paren">)</span> board<span class="paren">)</span>
+       <span class="paren">(</span>not <span class="paren">(</span>eq? <span class="paren">(</span>variant-a-piece-at <span class="paren">(</span>+ i piece<span class="paren">)</span> <span class="paren">(</span>+ j direction<span class="paren">)</span> board<span class="paren">)</span> piece<span class="paren">))))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-can-capture-l?</span> piece i j board<span class="paren">)</span>
+  <span class="paren">(</span>variant-a-can-capture? piece 1 i j board<span class="paren">))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-can-capture-r?</span> piece i j board<span class="paren">)</span>
+  <span class="paren">(</span>variant-a-can-capture? piece -1 i j board<span class="paren">))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-move-forward?</span> piece i j board<span class="paren">)</span>
+  <span class="paren">(</span><span class="keyword">and</span> <span class="paren">(</span>variant-a-on-board? <span class="paren">(</span>+ i piece<span class="paren">)</span> board<span class="paren">)</span>
+       <span class="paren">(</span>not <span class="paren">(</span>variant-a-piece-at? <span class="paren">(</span>+ i piece<span class="paren">)</span> j board<span class="paren">))))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-move-backward?</span> piece i j pieces<span class="paren">)</span>
+  <span class="paren">(</span><span class="keyword">and</span> <span class="paren">(</span>variant-a-on-board? <span class="paren">(</span>- i piece<span class="paren">)</span> pieces<span class="paren">)</span>
+       <span class="paren">(</span>not <span class="paren">(</span>variant-a-piece-at? <span class="paren">(</span>- i piece<span class="paren">)</span> j pieces<span class="paren">))))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-move-left?</span> piece i j pieces<span class="paren">)</span>
+  <span class="paren">(</span><span class="keyword">and</span> <span class="paren">(</span>variant-a-on-board? <span class="paren">(</span>- j 1<span class="paren">)</span> pieces<span class="paren">)</span>
+       <span class="paren">(</span>not <span class="paren">(</span>variant-a-piece-at? i <span class="paren">(</span>- j 1<span class="paren">)</span> pieces<span class="paren">))))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-move-right?</span> piece i j pieces<span class="paren">)</span>
+  <span class="paren">(</span><span class="keyword">and</span> <span class="paren">(</span>variant-a-on-board? <span class="paren">(</span>+ j 1<span class="paren">)</span> pieces<span class="paren">)</span>
+       <span class="paren">(</span>not <span class="paren">(</span>variant-a-piece-at? i <span class="paren">(</span>+ j 1<span class="paren">)</span> pieces<span class="paren">))))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-move-sideways?</span> piece direction i j pieces<span class="paren">)</span>
+  <span class="paren">(</span><span class="keyword">and</span> <span class="paren">(</span>variant-a-on-board? <span class="paren">(</span>+ i piece<span class="paren">)</span> pieces<span class="paren">)</span>
+       <span class="paren">(</span>variant-a-on-board? <span class="paren">(</span>+ j direction<span class="paren">)</span> pieces<span class="paren">)</span>
+       <span class="paren">(</span>not <span class="paren">(</span>variant-a-piece-at? <span class="paren">(</span>+ i piece<span class="paren">)</span> <span class="paren">(</span>+ j direction<span class="paren">)</span> pieces<span class="paren">))))</span>
+ <span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-move-back-sideways?</span> piece direction i j pieces<span class="paren">)</span>
+  <span class="paren">(</span><span class="keyword">and</span> <span class="paren">(</span>variant-a-on-board? <span class="paren">(</span>- i piece<span class="paren">)</span> pieces<span class="paren">)</span>
+       <span class="paren">(</span>variant-a-on-board? <span class="paren">(</span>+ j direction<span class="paren">)</span> pieces<span class="paren">)</span>
+       <span class="paren">(</span>not <span class="paren">(</span>variant-a-piece-at? <span class="paren">(</span>- i piece<span class="paren">)</span> <span class="paren">(</span>+ j direction<span class="paren">)</span> pieces<span class="paren">))))</span>
+ <span class="paren">(</span><span class="keyword">let*</span> <span class="paren">((</span>player <span class="paren">(</span>first board<span class="paren">))</span> <span class="paren">(</span>board <span class="paren">(</span>second board<span class="paren">))</span> <span class="paren">(</span>n <span class="paren">(</span>length board<span class="paren">)))</span>
+  <span class="paren">(</span><span class="keyword">map</span>
+   <span class="paren">(</span><span class="keyword">lambda</span> <span class="paren">(</span>x<span class="paren">)</span> `<span class="paren">(</span>,<span class="paren">(</span>- player<span class="paren">)</span> ,x<span class="paren">))</span>
+   <span class="paren">(</span>reduce
+    append
+    <span class="paren">(</span>map-indexed
+     <span class="paren">(</span><span class="keyword">lambda</span> <span class="paren">(</span>row i<span class="paren">)</span>
+      <span class="paren">(</span>reduce
+       append
+       <span class="paren">(</span>map-indexed
+        <span class="paren">(</span><span class="keyword">lambda</span> <span class="paren">(</span>piece j<span class="paren">)</span>
+         <span class="paren">(</span><span class="keyword">if</span> <span class="paren">(</span>= piece player<span class="paren">)</span>
+             <span class="paren">(</span>append
+              <span class="paren">(</span><span class="keyword">if</span> <span class="paren">(</span>variant-a-move-sideways? piece 1 i j board<span class="paren">)</span>
+                  `<span class="paren">(</span>,<span class="paren">(</span>variant-a-board-move board i j <span class="paren">(</span>+ i piece<span class="paren">)</span> <span class="paren">(</span>+ j 1<span class="paren">)))</span>
+                  '<span class="paren">())</span>
+              <span class="paren">(</span><span class="keyword">if</span> <span class="paren">(</span>variant-a-move-sideways? piece -1 i j board<span class="paren">)</span>
+                  `<span class="paren">(</span>,<span class="paren">(</span>variant-a-board-move board i j <span class="paren">(</span>+ i piece<span class="paren">)</span> <span class="paren">(</span>- j 1<span class="paren">)))</span>
+                  '<span class="paren">())</span>
+              <span class="paren">(</span><span class="keyword">if</span> <span class="paren">(</span>variant-a-can-capture-l? piece i j board<span class="paren">)</span>
+                  `<span class="paren">(</span>,<span class="paren">(</span>variant-a-board-move board i j <span class="paren">(</span>+ i piece<span class="paren">)</span> <span class="paren">(</span>+ j 1<span class="paren">)))</span>
+                  '<span class="paren">())</span>
+              <span class="paren">(</span><span class="keyword">if</span> <span class="paren">(</span>variant-a-can-capture-r? piece i j board<span class="paren">)</span>
+                  `<span class="paren">(</span>,<span class="paren">(</span>variant-a-board-move board i j <span class="paren">(</span>+ i piece<span class="paren">)</span> <span class="paren">(</span>- j 1<span class="paren">)))</span>
+                  '<span class="paren">()))</span>
+             '<span class="paren">()))</span>
+        row<span class="paren">)</span>
+       '<span class="paren">()))</span>
+     board<span class="paren">)</span>
+    '<span class="paren">()))))</span>
+
+<span class="paren">(</span><span class="keyword">define</span> <span class="paren">(</span><span class="function-name">variant-a-win0</span> board<span class="paren">)</span>
+ <span class="paren">(</span><span class="keyword">cond</span> <span class="paren">((</span>some <span class="paren">(</span><span class="keyword">lambda</span> <span class="paren">(</span>current<span class="paren">)</span> <span class="paren">(</span>= current 1<span class="paren">))</span> <span class="paren">(</span>last <span class="paren">(</span>second board<span class="paren">)))</span> 1<span class="paren">)</span>
+       <span class="paren">((</span>some <span class="paren">(</span><span class="keyword">lambda</span> <span class="paren">(</span>current<span class="paren">)</span> <span class="paren">(</span>= current -1<span class="paren">))</span> <span class="paren">(</span>first <span class="paren">(</span>second board<span class="paren">)))</span> -1<span class="paren">)</span>
+       <span class="paren">((</span>null? <span class="paren">(</span>variant-a-moves board<span class="paren">))</span> <span class="paren">(</span>- <span class="paren">(</span>first board<span class="paren">)))</span>
+       <span class="paren">(</span><span class="keyword">else</span> 0<span class="paren">)))</span>
+</pre>
+  </body>
+</html>

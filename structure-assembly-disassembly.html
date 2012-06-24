@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Research</title>
+    <link rel="stylesheet" href="layout.css" type="text/css"/>
+    <link href="lightbox2/css/lightbox.css" rel="stylesheet" />
+    <script type="Javascript" src="js/collapse-expand-item.js"></script>
+    <script src="lightbox2/js/jquery-1.7.2.min.js"></script>
+    <script src="lightbox2/js/lightbox.js"></script>
+    <script language="Javascript" src="js/tabs.js"></script>
+    <style type="text/css">
+      li#thread {padding:5px 5px 1px 5px;}
+      li#subthread {padding:1px 5px 1px 5px;}
+      ul#thread {padding:1px 5px 5px 18px;}
+    </style>
+    <script type="text/javascript">
+      function image_r(i,d){
+      document.write('<td><a rel="lightbox" href="images/' + i + '-both-logs.png" title="' + d + '"> <img alt="" width="320" src="images/' + i + '-both-logs.png_thumb.jpeg"/></a></td>')
+      }
+      function video_r(i,prefix){
+      document.write('<td><video width="320" height="240" controls="controls"><source src="videos/assembly-imitation/' + prefix + '-' + i + '.mp4" type="video/mp4" />Your browser does not support the video tag.</video></td>')
+      }
+      function structure_table(i,desc,desc2,desc3){
+      document.write('<table align="center" cellspacing="10"><tr><th>Estimated Structure</th><th>Natural-Language Description</th></tr><tr>');
+	image_r(i,"Estimated Structure");
+	document.write('<td><center style="font-weight:bold;font-variant:small-caps">' + desc)
+	if (desc2){
+	   document.write(' <br/>' + desc2)
+	}
+	if (desc3){
+	   document.write(' <br/>' + desc3)
+	}
+	document.write('</center></td>')
+	document.write('</tr><tr><th>Assembly from Description</th><th>Disassembly from Description</th></tr><tr>');
+	video_r(i,"assembly")
+	video_r(i,"disassembly")
+	document.write('</tr></table>');
+      }
+    </script>
+  </head>
+  <body class="home">
+    <div id="container">
+      <nav id="main-navigation">
+	<ul>
+	  <li><a href="index.html">Home</a></li>
+	  <li class="current"><a href="research.html">Research</a></li>
+	  <li><a href="reading.html">Reading</a></li>
+	</ul>
+      </nav>
+      <br/>
+
+      <article>
+	<h1>Structure Assembly and Disassembly</h1>
+	<br clear="all" />
+	Having estimated the structure of an assembly from an image, we generate
+	a complete and compact description of that structure in English (subject
+	to fixed grid size).
+	This description can then drive robotic manipulation of the stucture.
+	We can both assemble and disassemble a structure from its
+        natural-language description.
+	<hr/>
+	<div id="wrapper">
+	  <div id="tabContainer">
+	    <div class="tabs">
+	      <ul>
+		<li id="tabHeader_1">Structure 1</li>
+		<li id="tabHeader_2">Structure 2</li>
+		<li id="tabHeader_3">Structure 3</li>
+		<li id="tabHeader_4">Structure 4</li>
+		<li id="tabHeader_5">Structure 5</li>
+		<li id="tabHeader_6">Structure 6</li>
+	      </ul>
+	    </div>
+	    <div class="tabscontent">
+	      <div class="tabpage" id="tabpage_1">
+		<script type="text/javascript">
+		  structure_table("1268535851-1200-0","Some wall has some window.")
+		</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_2">
+		<script type="text/javascript">
+		  structure_table("1268549400-1200-0","Some door exists.")
+		</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_3">
+		<script type="text/javascript">
+		  structure_table("1268536402-1200-0","Two windows exist.")
+		</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_4">
+		<script type="text/javascript">
+		  structure_table("1268536900-1500-0","Seven doors exist.")
+		</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_5">
+		<script type="text/javascript">
+		  structure_table("1268538023-1200-0","Some solid three-high wall exists.")
+		</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_6">
+		<script type="text/javascript">
+		  structure_table("1268537656-1500-0","Three walls are one-wide.","Five walls are solid.","Five walls are two-high.")
+		</script>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- <script language="Javascript" src="js/tabs.js"></script> -->
+      </article>
+      <div class="footer">
+	<p>This work was supported, in part, by NSF grant CCF-0438806, by the Naval
+	  Research Laboratory under Contract Number N00173-10-1-G023, and by the Army
+	  Research Laboratory accomplished under Cooperative Agreement Number
+	  W911NF-10-2-0060.
+	  Any views, opinions, findings, conclusions, or recommendations contained or
+	  expressed in this document or material are those of the author(s) and do not
+	  necessarily reflect or represent the views or official policies, either
+	  expressed or implied, of NSF, the Naval Research Laboratory, the Office of
+	  Naval Research, the Army Research Laboratory, or the U.S. Government.
+	  The U.S. Government is authorized to reproduce and distribute reprints for
+	  Government purposes, notwithstanding any copyright notation herein.
+	</p>
+	<p style="text-align:center"> Siddharth Narayanaswamy | siddharth@ | iffsid.com</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+(define (variant-a-initial-board) '(1 ((1 1 1) (0 0 0) (-1 -1 -1))))
+
+(define (variant-a-board-move board from-i from-j to-i to-j)
+ (list-2d-replace
+  (list-2d-replace board to-i to-j (list-2d-ref board from-i from-j))
+  from-i
+  from-j
+  0))
+
+(define (variant-a-moves board)
+ (define (variant-a-piece-at i j board) (list-2d-ref board i j))
+ (define (variant-a-piece-at? i j board) (not (zero? (list-2d-ref board i j))))
+ (define (variant-a-on-board? i board) (and (>= i 0) (< i (length board))))
+ (define (variant-a-can-capture? piece direction i j board)
+  (and (variant-a-on-board? (+ i piece) board)
+       (variant-a-on-board? (+ j direction) board)
+       (variant-a-piece-at? (+ i piece) (+ j direction) board)
+       (not (eq? (variant-a-piece-at (+ i piece) (+ j direction) board) piece))))
+ (define (variant-a-can-capture-l? piece i j board)
+  (variant-a-can-capture? piece 1 i j board))
+ (define (variant-a-can-capture-r? piece i j board)
+  (variant-a-can-capture? piece -1 i j board))
+ (define (variant-a-move-forward? piece i j board)
+  (and (variant-a-on-board? (+ i piece) board)
+       (not (variant-a-piece-at? (+ i piece) j board))))
+ (define (variant-a-move-backward? piece i j pieces)
+  (and (variant-a-on-board? (- i piece) pieces)
+       (not (variant-a-piece-at? (- i piece) j pieces))))
+ (define (variant-a-move-left? piece i j pieces)
+  (and (variant-a-on-board? (- j 1) pieces)
+       (not (variant-a-piece-at? i (- j 1) pieces))))
+ (define (variant-a-move-right? piece i j pieces)
+  (and (variant-a-on-board? (+ j 1) pieces)
+       (not (variant-a-piece-at? i (+ j 1) pieces))))
+ (define (variant-a-move-sideways? piece direction i j pieces)
+  (and (variant-a-on-board? (+ i piece) pieces)
+       (variant-a-on-board? (+ j direction) pieces)
+       (not (variant-a-piece-at? (+ i piece) (+ j direction) pieces))))
+ (define (variant-a-move-back-sideways? piece direction i j pieces)
+  (and (variant-a-on-board? (- i piece) pieces)
+       (variant-a-on-board? (+ j direction) pieces)
+       (not (variant-a-piece-at? (- i piece) (+ j direction) pieces))))
+ (let* ((player (first board)) (board (second board)) (n (length board)))
+  (map
+   (lambda (x) `(,(- player) ,x))
+   (reduce
+    append
+    (map-indexed
+     (lambda (row i)
+      (reduce
+       append
+       (map-indexed
+	(lambda (piece j)
+	 (if (= piece player)
+	     (append
+	      (if (variant-a-move-sideways? piece 1 i j board)
+		  `(,(variant-a-board-move board i j (+ i piece) (+ j 1)))
+		  '())
+	      (if (variant-a-move-sideways? piece -1 i j board)
+		  `(,(variant-a-board-move board i j (+ i piece) (- j 1)))
+		  '())
+	      (if (variant-a-can-capture-l? piece i j board)
+		  `(,(variant-a-board-move board i j (+ i piece) (+ j 1)))
+		  '())
+	      (if (variant-a-can-capture-r? piece i j board)
+		  `(,(variant-a-board-move board i j (+ i piece) (- j 1)))
+		  '()))
+	     '()))
+	row)
+       '()))
+     board)
+    '()))))
+
+(define (variant-a-win0 board)
+ (cond ((some (lambda (current) (= current 1)) (last (second board))) 1)
+       ((some (lambda (current) (= current -1)) (first (second board))) -1)
+       ((null? (variant-a-moves board)) (- (first board)))
+       (else 0)))

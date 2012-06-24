@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Research</title>
+    <link rel="stylesheet" href="layout.css" type="text/css"/>
+    <script language="Javascript" src="js/collapse-expand-item.js"></script>
+    <style type="text/css">
+      li#thread {padding:5px 5px 1px 5px;}
+      li#subthread {padding:1px 5px 1px 5px;}
+      ul#thread {padding:1px 5px 5px 18px;}
+    </style>
+    <script language="Javascript" src="js/tabs.js"></script>
+    <script type="text/javascript">
+      function variant_table(v){document.write('<table align="center" cellspacing="10"><tr><th>Initial Rules</th><th>Learning Rules</th></tr><tr><td><embed width="540" height="262" src="game-rule-learning-data/variant-' + v + '-initial-rules.sc.html"></embed></td><td><video width="280" height="210" controls="controls"><source src="videos/game-rule-learning/variant-' + v +'-learn.mp4" type="video/mp4" /> Your browser does not support the video tag. </video></td></tr><tr><th>Learned Rules</th><th>Playing from Learned Rules</th></tr><tr><td><embed width="540" height="320" src="game-rule-learning-data/variant-' + v +'-rules.prolog.html"></embed></td><td><video width="280" height="210" controls="controls"><source src="videos/game-rule-learning/variant-' + v + '-play.mp4" type="video/mp4" /> Your browser does not support the video tag. </video></td></tr></table>');
+      }
+    </script>
+  </head>
+  <body class="home">
+    <div id="container">
+
+      <nav id="main-navigation">
+	<ul>
+	  <li><a href="index.html">Home</a></li>
+	  <li class="current"><a href="research.html">Research</a></li>
+	  <li><a href="reading.html">Reading</a></li>
+	</ul>
+      </nav>
+      <br/>
+
+      <article>
+	<h1>Game-Rule Learning</h1>
+	<br clear="all" />
+
+	Three independent agents, the <i>protagonist</i>, <i>antagonist</i>,
+	and the <i>wannabe</i> share an instantiation of our robotic testbed in
+	this endeavour to learn board-game rules.  Two of these,
+	the <i>protagonist</i> and the <i>antagonist</i>, are given the rules
+	of the game, while the <i>wannabe</i> is not.  The <i>protagonist</i>
+	and the <i>antagonist</i> then play a series of physically instantiated
+	games of a particular kind, while the <i>wannabe</i> watches.<br/><br/>
+
+	The <i>wannabe</i> then infers the rules of the game purely from
+	visual-input.  It then takes the place of one of the earlier players,
+	say the <i>antagonist</i>, and uses the learned rules to drive
+	physically instantiated play.  Note that we aim to learn to
+	play <i>legally</i>, not necessarily <i>well</i>.<br/><br/>
+
+	An example of such a system, end-to-end, is shown here:<br/><br/>
+
+	<table align="center" cellspacing="10">
+	  <tr>
+	    <td>
+	      <video width="320" height="240" controls="controls">
+		<source src="videos/game-rule-learning/learning-to-play-board-games.mp4"
+			type="video/mp4" />
+		Your browser does not support the video tag.
+	      </video>
+	    </td>
+	  </tr>
+	</table>
+	<br clear="all" />
+
+
+	Shown below are the respective intial rules, robotic play to learn the
+	rules, learned rules, and robotic play from learned rules for
+	Tic-Tac-Toe, Hexapawn, and four variants of Hexapawn.<br/><br/>
+
+	[To view larger videos, right-click on the video and
+	select 'Open Video in New Tab']<br/>
+
+	<!-- http://www.my-html-codes.com/javascript-tabs-html-5-css3 -->
+	<div id="wrapper">
+	  <div id="tabContainer">
+	    <div class="tabs">
+	      <ul>
+		<li id="tabHeader_1">Tic-Tac-Toe</li>
+		<li id="tabHeader_2">Hexapawn</li>
+		<li id="tabHeader_3">Hexapawn Variant A</li>
+		<li id="tabHeader_4">Hexapawn Variant B</li>
+		<li id="tabHeader_5">Hexapawn Variant C</li>
+		<li id="tabHeader_6">Hexapawn Variant D</li>
+	      </ul>
+	    </div>
+	    <div class="tabscontent">
+	      <div class="tabpage" id="tabpage_1">
+		<table align="center" cellspacing="10">
+		  <tr>
+		    <th>Initial Rules</th>
+		    <th>Learning Rules</th>
+		  </tr>
+		  <tr>
+		    <td>
+		      <pre style="font-size:1em;width:540px;height:240px;overflow:auto">
+Every cache square for every player in the initial state has some piece of
+that player.
+
+A player moves by moving some piece of that player from some cache square for
+that player to some empty board square.
+
+A player wins when every square in some row has some piece of that player.
+A player wins when every square in some column has some piece of that player.
+A player wins when every square in some diagonal has some piece of that
+player.
+
+A player draws when no player wins and that player has no move.
+		      </pre>
+		    </td>
+		    <td>
+		      <video width="280" height="210" controls="controls">
+			<source src="videos/game-rule-learning/tic-tac-toe-learn.mp4"
+				type="video/mp4" />
+			Your browser does not support the video tag.
+		      </video>
+		    </td>
+		  </tr>
+		  <tr>
+		    <th>Learned Rules</th>
+		    <th>Playing from Learned Rules</th>
+		  </tr>
+		  <tr>
+		    <td>
+		      <embed width="540" height="320"
+			     src="game-rule-learning-data/tic-tac-toe-rules.prolog.html"></embed>
+		    </td>
+		    <td>
+		      <video width="280" height="210" controls="controls">
+			<source src="videos/game-rule-learning/tic-tac-toe-play.mp4"
+				type="video/mp4" />
+			Your browser does not support the video tag.
+		      </video>
+		    </td>
+		  </tr>
+		</table>
+	      </div>
+	      <div class="tabpage" id="tabpage_2">
+		<table align="center" cellspacing="10">
+		  <tr>
+		    <th>Initial Rules</th>
+		    <th>Learning Rules</th>
+		  </tr>
+		  <tr>
+		    <td>
+		      <pre style="font-size:1em;width:540px;height:240px;overflow:auto">
+Every square in the close row for every player in the initial state has some
+piece of that player.
+
+A player moves by moving some piece of that player from some square to some
+empty forward-adjacent square for that player of that square.
+A player moves by moving some piece of the opponent of that player from some
+forward-diagonal square for that player of some square to some cache square
+for that opponent then moving the piece of that player from that square to
+that forward-diagonal square.
+
+A player wins when some square in the distant row for that player has some
+piece of that player.
+
+A player draws when no player wins and that player has no move.
+		      </pre>
+		    </td>
+		    <td>
+		      <video width="280" height="210" controls="controls">
+			<source src="videos/game-rule-learning/hexapawn-learn.mp4"
+				type="video/mp4" />
+			Your browser does not support the video tag.
+		      </video>
+		    </td>
+		  </tr>
+		  <tr>
+		    <th>Learned Rules</th>
+		    <th>Playing from Learned Rules</th>
+		  </tr>
+		  <tr>
+		    <td>
+		      <embed width="540" height="320"
+			     src="game-rule-learning-data/hexapawn-rules.prolog.html"></embed>
+		    </td>
+		    <td>
+		      <video width="280" height="210" controls="controls">
+			<source src="videos/game-rule-learning/hexapawn-play.mp4"
+				type="video/mp4" />
+			Your browser does not support the video tag.
+		      </video>
+		    </td>
+		  </tr>
+		</table>
+	      </div>
+	      <div class="tabpage" id="tabpage_3">
+		<script type="text/javascript">variant_table("a");</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_4">
+		<script type="text/javascript">variant_table("b");</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_5">
+		<script type="text/javascript">variant_table("c");</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_6">
+		<script type="text/javascript">variant_table("d");</script>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      </article>
+      <div class="footer">
+	<p>This work was supported, in part, by NSF grant CCF-0438806, by the Naval
+	  Research Laboratory under Contract Number N00173-10-1-G023, and by the Army
+	  Research Laboratory accomplished under Cooperative Agreement Number
+	  W911NF-10-2-0060.
+	  Any views, opinions, findings, conclusions, or recommendations contained or
+	  expressed in this document or material are those of the author(s) and do not
+	  necessarily reflect or represent the views or official policies, either
+	  expressed or implied, of NSF, the Naval Research Laboratory, the Office of
+	  Naval Research, the Army Research Laboratory, or the U.S. Government.
+	  The U.S. Government is authorized to reproduce and distribute reprints for
+	  Government purposes, notwithstanding any copyright notation herein.
+	</p>
+	<p style="text-align:center"> Siddharth Narayanaswamy | siddharth@ | iffsid.com</p>
+      </div>
+    </div>
+  </body>
+</html>

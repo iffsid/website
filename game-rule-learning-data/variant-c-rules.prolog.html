@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- Created by htmlize-1.39 in css mode. -->
+<html>
+  <head>
+    <title>variant-c-rules.pl</title>
+    <style type="text/css">
+    <!--
+      body {
+        color: #f8f8f8;
+        background-color: #000000;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #f6b913;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #50eafb;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #efefec;
+      }
+
+      a {
+        color: inherit;
+        background-color: inherit;
+        font: inherit;
+        text-decoration: inherit;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    -->
+    </style>
+  </head>
+  <body>
+    <pre>
+<span class="function-name">initial_board</span>(<span class="keyword">[[</span>x,x,x<span class="keyword">]</span>,<span class="keyword">[</span>none,none,none<span class="keyword">]</span>,<span class="keyword">[</span>o,o,o<span class="keyword">]]</span>,player_x).
+
+<span class="function-name">legal_move</span>(<span class="variable-name">A</span>,<span class="variable-name">B</span>,<span class="variable-name">C</span>) :- row(<span class="variable-name">D</span>), col(<span class="variable-name">E</span>), owns(<span class="variable-name">A</span>,<span class="variable-name">F</span>), empty(<span class="variable-name">G</span>), forward(<span class="variable-name">A</span>,
+        <span class="variable-name">H</span>,<span class="variable-name">D</span>), at(<span class="variable-name">H</span>,<span class="variable-name">E</span>,<span class="variable-name">B</span>,<span class="variable-name">F</span>,<span class="variable-name">I</span>), at(<span class="variable-name">H</span>,<span class="variable-name">E</span>,<span class="variable-name">C</span>,<span class="variable-name">G</span>,<span class="variable-name">J</span>), at(<span class="variable-name">D</span>,<span class="variable-name">E</span>,<span class="variable-name">B</span>,<span class="variable-name">G</span>,<span class="variable-name">K</span>), at(<span class="variable-name">D</span>,
+        <span class="variable-name">E</span>,<span class="variable-name">C</span>,<span class="variable-name">F</span>,<span class="variable-name">L</span>), frame_obj(<span class="variable-name">I</span>,<span class="variable-name">K</span>,<span class="variable-name">J</span>,<span class="variable-name">L</span>,<span class="variable-name">B</span>,<span class="variable-name">C</span>).
+<span class="function-name">legal_move</span>(<span class="variable-name">A</span>,<span class="variable-name">B</span>,<span class="variable-name">C</span>) :- row(<span class="variable-name">D</span>), col(<span class="variable-name">E</span>), opponent(<span class="variable-name">A</span>,<span class="variable-name">F</span>), owns(<span class="variable-name">A</span>,<span class="variable-name">G</span>),
+        empty(<span class="variable-name">H</span>), forward(<span class="variable-name">F</span>,<span class="variable-name">D</span>,<span class="variable-name">I</span>), owns(<span class="variable-name">F</span>,<span class="variable-name">J</span>), sideways(<span class="variable-name">E</span>,<span class="variable-name">K</span>),
+        at(<span class="variable-name">I</span>,<span class="variable-name">K</span>,<span class="variable-name">B</span>,<span class="variable-name">G</span>,<span class="variable-name">L</span>), at(<span class="variable-name">I</span>,<span class="variable-name">K</span>,<span class="variable-name">C</span>,<span class="variable-name">H</span>,<span class="variable-name">M</span>), at(<span class="variable-name">D</span>,<span class="variable-name">E</span>,<span class="variable-name">C</span>,<span class="variable-name">G</span>,<span class="variable-name">N</span>), at(<span class="variable-name">D</span>,<span class="variable-name">E</span>,<span class="variable-name">B</span>,
+        <span class="variable-name">J</span>,<span class="variable-name">O</span>), frame_obj(<span class="variable-name">L</span>,<span class="variable-name">O</span>,<span class="variable-name">M</span>,<span class="variable-name">N</span>,<span class="variable-name">B</span>,<span class="variable-name">C</span>).
+<span class="function-name">legal_move</span>(<span class="variable-name">A</span>,<span class="variable-name">B</span>,<span class="variable-name">C</span>) :- row(<span class="variable-name">D</span>), col(<span class="variable-name">E</span>), owns(<span class="variable-name">A</span>,<span class="variable-name">F</span>), empty(<span class="variable-name">G</span>), forward(<span class="variable-name">A</span>,
+        <span class="variable-name">H</span>,<span class="variable-name">D</span>), at(<span class="variable-name">H</span>,<span class="variable-name">E</span>,<span class="variable-name">B</span>,<span class="variable-name">G</span>,<span class="variable-name">I</span>), at(<span class="variable-name">H</span>,<span class="variable-name">E</span>,<span class="variable-name">C</span>,<span class="variable-name">F</span>,<span class="variable-name">J</span>), at(<span class="variable-name">D</span>,<span class="variable-name">E</span>,<span class="variable-name">B</span>,<span class="variable-name">F</span>,<span class="variable-name">K</span>), at(<span class="variable-name">D</span>,
+        <span class="variable-name">E</span>,<span class="variable-name">C</span>,<span class="variable-name">G</span>,<span class="variable-name">L</span>), frame_obj(<span class="variable-name">J</span>,<span class="variable-name">L</span>,<span class="variable-name">I</span>,<span class="variable-name">K</span>,<span class="variable-name">C</span>,<span class="variable-name">B</span>).
+
+<span class="function-name">outcome</span>(<span class="variable-name">A</span>,<span class="variable-name">B</span>,<span class="variable-name">C</span>) :- row(<span class="variable-name">D</span>), opponent(<span class="variable-name">A</span>,<span class="variable-name">E</span>), forward(<span class="variable-name">E</span>,<span class="variable-name">D</span>,<span class="variable-name">F</span>), forward(<span class="variable-name">E</span>,
+        <span class="variable-name">F</span>,<span class="variable-name">G</span>), owns_outcome(<span class="variable-name">E</span>,<span class="variable-name">C</span>), owns_piece(<span class="variable-name">C</span>,<span class="variable-name">H</span>), at(<span class="variable-name">G</span>,<span class="variable-name">I</span>,<span class="variable-name">B</span>,<span class="variable-name">H</span>,
+        <span class="variable-name">J</span>).
+<span class="function-name">outcome</span>(<span class="variable-name">A</span>,<span class="variable-name">B</span>,<span class="variable-name">C</span>) :- opponent(<span class="variable-name">A</span>,<span class="variable-name">D</span>), has_no_move(<span class="variable-name">A</span>,<span class="variable-name">B</span>), owns_outcome(<span class="variable-name">D</span>,
+        <span class="variable-name">C</span>).
+</pre>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+Every square in the close row for every player in the initial state has some
+piece of that player.
+
+A player moves by moving some piece of that player from some square to some
+empty forward-adjacent square for that player of that square.
+A player moves by moving some piece of the opponent of that player from some
+forward-diagonal square for that player of some square to some cache square
+for that opponent then moving the piece of that player from that square to
+that forward-diagonal square.
+
+A player wins when some square in the distant row for that player has some
+piece of that player.
+
+A player draws when no player wins and that player has no move.

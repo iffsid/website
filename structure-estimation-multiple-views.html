@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Research</title>
+    <link rel="stylesheet" href="layout.css" type="text/css"/>
+    <link href="lightbox2/css/lightbox.css" rel="stylesheet" />
+    <script type="Javascript" src="js/collapse-expand-item.js"></script>
+    <script src="lightbox2/js/jquery-1.7.2.min.js"></script>
+    <script src="lightbox2/js/lightbox.js"></script>
+    <script language="Javascript" src="js/tabs.js"></script>
+    <style type="text/css">
+      li#thread {padding:5px 5px 1px 5px;}
+      li#subthread {padding:1px 5px 1px 5px;}
+      ul#thread {padding:1px 5px 5px 18px;}
+    </style>
+    <script type="text/javascript">
+      function table_r(g,i,d) {
+      document.write('<td><a rel="lightbox[' + g + ']" href="images/' + i + '.png" title="' + d + '"> <img alt="" width="250" src="images/' + i + '.png_thumb.jpeg"/></a></td>')
+      }
+      function table_tab(g,i1,i2,i3) {
+      document.write('<table align="center" cellspacing="10"><tr><th>Estimation from First View</th><th>Estimation from Second View</th><th>Estimation Combining Both Views</th></tr><tr>');
+	table_r(g,i1,"Estimation from First View")
+	table_r(g,i2,"Estimation from Second View")
+	table_r(g,i3,"Estimation Combining Both Views")
+	document.write('</tr></table>')
+      }
+    </script>
+  </head>
+  <body class="home">
+    <div id="container">
+      <nav id="main-navigation">
+	<ul>
+	  <li><a href="index.html">Home</a></li>
+	  <li class="current"><a href="research.html">Research</a></li>
+	  <li><a href="reading.html">Reading</a></li>
+	</ul>
+      </nav>
+      <br/>
+
+      <article>
+	<h1>Structure Estimation from Multiple Views</h1>
+	<br clear="all" />
+	Estimating contituent elements of a structure from multiple views
+	involves integrating image evidence across those views under a single,
+	unified framework.<br/><br/>
+	<hr/>
+	<div id="wrapper">
+	  <div id="tabContainer">
+	    <div class="tabs">
+	      <ul>
+		<li id="tabHeader_1">Structure 1</li>
+		<li id="tabHeader_2">Structure 2</li>
+		<li id="tabHeader_3">Structure 3</li>
+		<li id="tabHeader_4">Structure 4</li>
+		<li id="tabHeader_5">Structure 5</li>
+	      </ul>
+	    </div>
+	    <div class="tabscontent">
+	      <div class="tabpage" id="tabpage_1">
+		<script type="text/javascript">
+		  table_tab("s1","1263233552-1200-0","1263233552-1800-0","1263233552-1200-0-1800-0-merge-log");
+		</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_2">
+		<script type="text/javascript">
+		  table_tab("s2","1263233912-1500-ll","1263233912-900-90","1263233912-1500-ll-900-90-merge-log");
+		</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_3">
+		<script type="text/javascript">
+		  table_tab("s3","1263242535-1500-90","1263242535-1800-90","1263242535-1500-90-1800-90-merge-log");
+		</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_4">
+		<script type="text/javascript">
+		  table_tab("s4","1263244065-1200-ll","1263244065-2100-ll","1263244065-1200-ll-2100-ll-merge-log");
+		</script>
+	      </div>
+	      <div class="tabpage" id="tabpage_5">
+		<script type="text/javascript">
+		  table_tab("s5","1263244386-1500-0","1263244386-1800-90","1263244386-1500-0-1800-90-merge-log");
+		</script>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      </article>
+      <div class="footer">
+	<p>This work was supported, in part, by NSF grant CCF-0438806, by the Naval
+	  Research Laboratory under Contract Number N00173-10-1-G023, and by the Army
+	  Research Laboratory accomplished under Cooperative Agreement Number
+	  W911NF-10-2-0060.
+	  Any views, opinions, findings, conclusions, or recommendations contained or
+	  expressed in this document or material are those of the author(s) and do not
+	  necessarily reflect or represent the views or official policies, either
+	  expressed or implied, of NSF, the Naval Research Laboratory, the Office of
+	  Naval Research, the Army Research Laboratory, or the U.S. Government.
+	  The U.S. Government is authorized to reproduce and distribute reprints for
+	  Government purposes, notwithstanding any copyright notation herein.
+	</p>
+	<p style="text-align:center"> Siddharth Narayanaswamy | siddharth@ | iffsid.com</p>
+      </div>
+    </div>
+  </body>
+</html>

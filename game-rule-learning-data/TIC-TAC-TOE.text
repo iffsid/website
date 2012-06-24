@@ -1,0 +1,12 @@
+Every cache square for every player in the initial state has some piece of
+that player.
+
+A player moves by moving some piece of that player from some cache square for
+that player to some empty board square.
+
+A player wins when every square in some row has some piece of that player.
+A player wins when every square in some column has some piece of that player.
+A player wins when every square in some diagonal has some piece of that
+player.
+
+A player draws when no player wins and that player has no move.

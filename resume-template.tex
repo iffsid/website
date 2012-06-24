@@ -1,0 +1,78 @@
+\documentclass[10pt]{article}
+\usepackage{textcomp}
+\usepackage{stmaryrd}
+\usepackage{fullpage}
+\usepackage{url}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+
+\textheight=10.5in
+\setlength{\tabcolsep}{0in}
+\setlength{\oddsidemargin}{-0.8cm}
+\setlength{\evensidemargin}{-0.8cm}
+\setlength{\textwidth}{7.0in}
+\setlength{\topmargin}{-1.0cm}
+\usepackage[T1]{fontenc}
+\usepackage{cmbright}
+\linespread{1}
+
+\renewcommand{\labelitemi}{}
+\renewcommand{\labelitemii}{}
+
+%% custom environments
+\newenvironment{position}[4]
+ {\filbreak
+ \item
+   \begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
+     \textbf{#1} & \textit{#2} \\ #3 & \footnotesize{#4} \\
+   \end{tabular*} 
+   \begin{itemize} \setlength{\parskip}{-1pt}}
+ { \end{itemize} }
+
+\newenvironment{publication}[6]
+ {\item
+   \begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
+     \textbf{#1} & \textit{#2}\\ #3 & \footnotesize{#4}\\ \textit{#5}\\ \url{#6}
+   \end{tabular*}
+ } {}
+
+\newenvironment{region}[1] {{\large \textbf{#1}} \begin{itemize}} {\end{itemize}}
+
+
+\begin{document}
+%% your name
+\begin{tabular*}{9in}{@{\extracolsep{\fill}}lcr} \textbf{\huge{ ... }} & \textrm{\today} \end{tabular*}
+%% ph, email, url
+\begin{tabular*}{6.85in}{@{\extracolsep{\fill}}lcr}\textrm{...}&\textrm{...}&\url{...}\\ \end{tabular*}\\
+\vspace{+0.15in}
+
+\begin{region}{Skills}
+\item 
+  ...
+\item \textbf{Languages} \ \\
+  ...
+\end{region}
+
+\begin{region} {Education} 
+  \begin{position} { .position. } { .duration. } { .where&whom. } {}
+  \item ...
+  ...
+  \end{position}
+  ...
+\end{region}
+
+\begin{region} {Publications / Posters}
+  \begin{publication} { .title. } { .mm.yy.} { .authors.} { .paper/poster.} { .where. } { .url. }
+  \end{publication}
+  ...
+\end{region}
+
+\begin{region} {Employment History}
+  \begin{position} { .title.} { .duration. } { .under. } { .where. }
+  \item ...
+  ...
+  \end{position}
+\end{region}
+
+\end{document}
